@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build SDL2",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "${file}",
+        "-o",
+        "${fileDirname}/main.exe",
+
+        // 🧩 Đường dẫn include - nơi chứa thư mục SDL2 có file SDL.h
+        "-ID:/Downloads/SDL2-devel-2.0.22-mingw/SDL2-2.0.22/x86_64-w64-mingw32/include",
+
+        // 🧩 Đường dẫn đến thư viện SDL2 (.lib hoặc .a)
+        "-LD:/Downloads/SDL2-devel-2.0.22-mingw/SDL2-2.0.22/x86_64-w64-mingw32/lib",
+
+        // 🧩 Các thư viện cần liên kết
+        "-lmingw32",
+        "-lSDL2main",
+        "-lSDL2"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
